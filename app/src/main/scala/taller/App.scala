@@ -6,6 +6,11 @@ package taller
 object App {
   def main(args: Array[String]): Unit = {
     println(greeting())
+
+    val m = new MatrixParallel()
+
+    val A = m.MatrizAlAzar(3, 10)
+    println(A)
   }
 
   def greeting(): String = "Hello, world!"
