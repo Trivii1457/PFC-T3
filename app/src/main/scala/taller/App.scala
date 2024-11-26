@@ -9,7 +9,7 @@ object App {
 
     val matriz = new MatrixParallel()
 
-    val A = matriz.MatrizAlAzar(3, 10)
+    val A = matriz.MatrizAlAzar(3, 10) // Matriz de 3x3 con valores aleatorios entre 0 y 10
     println(A)
 
     val B = matriz.multMatriz(A, A)
@@ -17,6 +17,9 @@ object App {
 
     val C = matriz.SubMatriz(B, 0, 0, 2)
     println(C)
+
+    val D = matriz.mulMatrizPar(A, A)
+    println(D)
   }
 
   def greeting(): String = "Hello, world!"
