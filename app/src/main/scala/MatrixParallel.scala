@@ -26,7 +26,17 @@ class MatrixParallel {
         val l = m.length
         Vector.tabulate(l, l){(i,j) => m(j)(i)}
     }
-    //Fin Funciones Auxiliares ------------------------------------------------
+    //Fin Funciones Auxiliares ------------------------------------------------ 
 
+    //Multiplicaccion estandar secuencial
+    def multMatriz(m1: Matriz, m2: Matriz): Matriz = {
+        val m2t = transpuesta(m2)
+        Vector.tabulate(m1.length, m2t.length){(i,j) => ProductoPunto(m1(i), m2t(j))}
+      }
+
+    //Extraccion de submatriz
+    def SubMatriz(m: Matriz, i: Int, j: Int, l: Int ): Matriz = {
+        Vector.tabulate(l, l){(x,y) => m(i+x)(j+y)}
+    }
   
 }

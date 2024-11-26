@@ -7,10 +7,16 @@ object App {
   def main(args: Array[String]): Unit = {
     println(greeting())
 
-    val m = new MatrixParallel()
+    val matriz = new MatrixParallel()
 
-    val A = m.MatrizAlAzar(3, 10)
+    val A = matriz.MatrizAlAzar(3, 10)
     println(A)
+
+    val B = matriz.multMatriz(A, A)
+    println(B)
+
+    val C = matriz.SubMatriz(B, 0, 0, 2)
+    println(C)
   }
 
   def greeting(): String = "Hello, world!"
