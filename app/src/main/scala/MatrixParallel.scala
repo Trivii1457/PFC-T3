@@ -1,5 +1,7 @@
 package taller
 import common.{parallel, task}
+
+import scala.collection.parallel.immutable.ParVector
 import scala.util.Random
 
 class MatrixParallel {
@@ -259,5 +261,9 @@ class MatrixParallel {
 
         }
 
+    }
+
+    def prodPuntoParD(v1: ParVector[Int], v2: ParVector[Int]): Int = {
+        (v1 zip v2).map { case (i, j) => i * j }.sum
     }
 }
