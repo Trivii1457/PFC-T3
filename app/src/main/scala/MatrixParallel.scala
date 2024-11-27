@@ -187,7 +187,7 @@ class MatrixParallel {
             val p6 = multMatriz(s7, s8)
             val p7 = multMatriz(s9, s10)
 
-            val c11 = ResMatriz(SumMatriz(p5,p4), SumMatriz(p2, p6))
+            val c11 = ResMatriz(SumMatriz(p5,p4), ResMatriz(p2, p6))
             val c12 = SumMatriz(p1, p2)
             val c21 = SumMatriz(p3, p4)
             val c22= ResMatriz(SumMatriz(p5, p1), SumMatriz(p3, p7))
