@@ -32,6 +32,9 @@ object App {
 
     val H = matriz.MultMatrizStrassen(A, A)
     println(H)
+
+    val I = matriz.StrassenParallel(A, A)
+    println(I)
   }
 
   def greeting(): String = "Hello, world!"
