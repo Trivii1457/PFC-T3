@@ -12,13 +12,13 @@ class Benchmark {
     val timeA1 = config(
       KeyValue(Key.exec.minWarmupRuns -> 20),
       KeyValue(Key.exec.maxWarmupRuns -> 60),
-      KeyValue(Key.verbose -> true)
+      KeyValue(Key.verbose -> false)
     ) withWarmer(new Warmer.Default) measure (a1(m1,m2))
 
     val timeA2 = config(
       KeyValue(Key.exec.minWarmupRuns -> 20),
       KeyValue(Key.exec.maxWarmupRuns -> 60),
-      KeyValue(Key.verbose -> true)
+      KeyValue(Key.verbose -> false)
     ) withWarmer(new Warmer.Default) measure (a2(m1,m2))
 
     val speedUp= timeA1.value-timeA2.value
