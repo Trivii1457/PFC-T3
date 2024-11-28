@@ -1,6 +1,5 @@
 package taller
-import common.{parallel, task}
-
+import common.parallel
 import scala.collection.parallel.immutable.ParVector
 import scala.util.Random
 
@@ -106,7 +105,8 @@ class MatrixParallel {
             val c22 = SumMatriz(MultMatrizRec(a21, b12), MultMatrizRec(a22, b22))
 
             //Se unen las matrices resultantes, a traves de la funcion zip y map
-            c11.zip(c12).map { case (filaC11, filaC12) => filaC11 ++ filaC12 } ++ c21.zip(c22).map { case (filaC21, filaC22) => filaC21 ++ filaC22 }
+            c11.zip(c12).map { case (filaC11, filaC12) => filaC11 ++ filaC12 } ++ 
+            c21.zip(c22).map { case (filaC21, filaC22) => filaC21 ++ filaC22 }
         }
     }
 

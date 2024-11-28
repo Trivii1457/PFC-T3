@@ -9,7 +9,7 @@ object App {
 
     val matriz = new MatrixParallel()
 
-    val A = matriz.MatrizAlAzar(4, 10) // Matriz de 3x3 con valores aleatorios entre 0 y 10
+    val A = matriz.MatrizAlAzar(4, 10) // Matriz de 4x4 con valores aleatorios entre 0 y 10
     println(A)
 
     val B = matriz.multMatriz(A, A)
@@ -35,6 +35,12 @@ object App {
 
     val I = matriz.StrassenParallel(A, A)
     println(I)
+  }
+
+  def benchmarking(): Unit = {
+
+
+
   }
 
   def greeting(): String = "Hello, world!"
