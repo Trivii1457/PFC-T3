@@ -1,7 +1,6 @@
-# Plantilla talleres programación funcional
+# TALLER #3: PROGRMAACION CONCURRENTE
 
-## Reglas
+## INTEGRANTES
 
-- Sólo modificar lo indicado por el docente
-- Debe agregar las pruebas de software solicitadas en el docente
-- El informe en formato PDF debe estar en la raiz del proyecto
+- Juan Diego Escobar Triviño - 
+- Gabriel Uraza Garcia - 2359594
