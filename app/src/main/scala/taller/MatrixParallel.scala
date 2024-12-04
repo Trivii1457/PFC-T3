@@ -132,6 +132,7 @@ class MatrixParallel {
             val b21 = SubMatriz(m2, m, 0, m)
             val b22 = SubMatriz(m2, m, m, m)
 
+            //Parallel de 4
             val (c11, c12, c21, c22) = parallel(
 
                 SumMatriz(MultMatrizRecPar(a11, b11), MultMatrizRecPar(a12, b21)),
