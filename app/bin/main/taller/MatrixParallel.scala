@@ -1,5 +1,6 @@
 package taller
 import common.parallel
+
 import scala.collection.parallel.immutable.ParVector
 import scala.util.Random
 
@@ -132,17 +133,14 @@ class MatrixParallel {
             val b21 = SubMatriz(m2, m, 0, m)
             val b22 = SubMatriz(m2, m, m, m)
 
-            val ((c11, c12), (c21, c22)) = parallel(
-                parallel(
-                    SumMatriz(MultMatrizRecPar(a11, b11), MultMatrizRecPar(a12, b21)),
-                    SumMatriz(MultMatrizRecPar(a11, b12), MultMatrizRecPar(a12, b22))
+            //Parallel de 4
+            val (c11, c12, c21, c22) = parallel(
 
-                ),
-                parallel(
-                    SumMatriz(MultMatrizRecPar(a21, b11), MultMatrizRecPar(a22, b21)),
-                    SumMatriz(MultMatrizRecPar(a21, b12), MultMatrizRecPar(a22, b22))
+                SumMatriz(MultMatrizRecPar(a11, b11), MultMatrizRecPar(a12, b21)),
+                SumMatriz(MultMatrizRecPar(a11, b12), MultMatrizRecPar(a12, b22)),
+                SumMatriz(MultMatrizRecPar(a21, b11), MultMatrizRecPar(a22, b21)),
+                SumMatriz(MultMatrizRecPar(a21, b12), MultMatrizRecPar(a22, b22))
 
-                )
             )
 
             c11.zip(c12).map { case (filaC11, filaC12) => filaC11 ++ filaC12 } ++
@@ -242,17 +240,13 @@ class MatrixParallel {
             val p6 = multMatriz(s7, s8)
             val p7 = multMatriz(s9, s10)
 
-            val ((c11, c12), (c21, c22)) = parallel(
-                parallel(
-                    ResMatriz(SumMatriz(p5,p4), ResMatriz(p2, p6)),
-                    SumMatriz(p1, p2)
-                ),
-                parallel(
+            val (c11, c12,c21, c22) = parallel(
 
-                    SumMatriz(p3, p4),
-                    ResMatriz(SumMatriz(p5, p1), SumMatriz(p3, p7))
+                ResMatriz(SumMatriz(p5,p4), ResMatriz(p2, p6)),
+                SumMatriz(p1, p2),
+                SumMatriz(p3, p4),
+                ResMatriz(SumMatriz(p5, p1), SumMatriz(p3, p7))
 
-                )
             )
 
             c11.zip(c12).map { case (filaC11, filaC12) => filaC11 ++ filaC12 } ++

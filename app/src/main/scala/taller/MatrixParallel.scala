@@ -1,5 +1,6 @@
 package taller
 import common.parallel
+
 import scala.collection.parallel.immutable.ParVector
 import scala.util.Random
 
