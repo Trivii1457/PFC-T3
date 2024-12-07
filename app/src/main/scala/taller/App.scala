@@ -44,13 +44,13 @@ object App {
   def benchmarking(): Unit = {
     val Bench = new Benchmark()
     val matriz = new MatrixParallel()
-    for (i <- 1 to 6) {
-      val A = matriz.MatrizAlAzar(math.pow(2,i).toInt, 2)
-      val B = matriz.MatrizAlAzar(math.pow(2,i).toInt, 2)
-      val (time1, time2, speedUp) = Bench.compararAlgoritmo(matriz.multMatriz, matriz.mulMatrizPar)(A, B)
-      println(s"Tiempo de ejecucion de multMatriz: $time1")
-      println(s"Tiempo de ejecucion de mulMatrizPar: $time2")
-      println(s"SpeedUp: $speedUp")
+    for  {
+      i <- 1 to 6
+    } yield {
+      val A = matriz.MatrizAlAzar(pow(2, i).toInt, 10)
+      val B = matriz.MatrizAlAzar(pow(2, i).toInt, 10)
+      val (time1, time2, speedUp) = Bench.compararAlgoritmo(matriz.MultMatrizRec, matriz.MultMatrizRecPar)(A, B)
+      println(s"Time1: $time1, Time2: $time2, SpeedUp: $speedUp")
     }
 
 
