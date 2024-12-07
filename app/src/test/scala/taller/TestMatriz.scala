@@ -1,7 +1,11 @@
 package taller
 
 import org.scalatest.funsuite.AnyFunSuite
+import org.junit.runner.RunWith
+import org.scalatestplus.junit.JUnitRunner
 import scala.collection.parallel.CollectionConverters._
+
+@RunWith(classOf[JUnitRunner])
 class TestMatriz extends AnyFunSuite {
   val matriz = new MatrixParallel()
 
@@ -19,12 +23,12 @@ class TestMatriz extends AnyFunSuite {
     assert(C.forall(_.length == 2))
   }
 
-  test("Test MultMatrizRec 3x3") {
-    val D = matriz.MatrizAlAzar(3, 5)
-    val E = matriz.MatrizAlAzar(3, 5)
+  test("Test MultMatrizRec 8x8") {
+    val D = matriz.MatrizAlAzar(8, 5)
+    val E = matriz.MatrizAlAzar(8, 5)
     val F = matriz.MultMatrizRec(D, E)
-    assert(F.length == 3)
-    assert(F.forall(_.length == 3))
+    assert(F.length == 8)
+    assert(F.forall(_.length == 8))
   }
 
   test("Test MultMatrizRec 4x4") {
@@ -43,12 +47,12 @@ class TestMatriz extends AnyFunSuite {
     assert(C.forall(_.length == 2))
   }
 
-  test("Test MultMatrizRecPar 3x3") {
-    val D = matriz.MatrizAlAzar(3, 5)
-    val E = matriz.MatrizAlAzar(3, 5)
+  test("Test MultMatrizRecPar 8x8") {
+    val D = matriz.MatrizAlAzar(8, 5)
+    val E = matriz.MatrizAlAzar(8, 5)
     val F = matriz.MultMatrizRecPar(D, E)
-    assert(F.length == 3)
-    assert(F.forall(_.length == 3))
+    assert(F.length == 8)
+    assert(F.forall(_.length == 8))
   }
 
   test("Test MultMatrizRecPar 4x4") {
