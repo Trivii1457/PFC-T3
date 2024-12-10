@@ -2,5 +2,5 @@
 
 ## INTEGRANTES
 
-- Juan Diego Escobar Triviño - 
+- Juan Diego Escobar Triviño - 2359393
 - Gabriel Uraza Garcia - 2359594
