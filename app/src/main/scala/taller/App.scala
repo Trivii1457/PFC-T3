@@ -10,7 +10,7 @@ object App {
     println(greeting())
 
     val matriz = new MatrixParallel()
-
+    println("HI")
     println("Probando funciones de matrices")
     println("-------------------"*5)
     val A = matriz.MatrizAlAzar(4, 10) // Matriz de 4x4 con valores aleatorios entre 0 y 10
