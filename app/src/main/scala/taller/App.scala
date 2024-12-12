@@ -9,83 +9,16 @@ object App {
   def main(args: Array[String]): Unit = {
     println(greeting())
 
-    val matriz = new MatrixParallel()
-    println("HI")
-    println("Probando funciones de matrices")
-    println("-------------------"*5)
-    val A = matriz.MatrizAlAzar(4, 10) // Matriz de 4x4 con valores aleatorios entre 0 y 10
-    println(A)
-
-    val B = matriz.multMatriz(A, A)
-    println(B)
-
-    val C = matriz.SubMatriz(B, 0, 0, 2)
-    println(C)
-
-    val D = matriz.mulMatrizPar(A, A)
-    println(D)
-
-    val E = matriz.ResMatriz(A, A)
-    println(E)
-
-    val F = matriz.MultMatrizRec(A, A)
-    println(F)
-
-    val G = matriz.MultMatrizRecPar(A, A)
-    println(G)
-
-    val H = matriz.MultMatrizStrassen(A, A)
-    println(H)
-
-    val I = matriz.StrassenParallel(A, A)
-    println(I)
-    println("-------------------"*5)
-    println("Benchmarking")
-    benchmarking()
-
+    
   }
 
   def benchmarking(): Unit = {
-    val Bench = new Benchmark()
-    val matriz = new MatrixParallel()
-    //Bench MultRec vs MultRecPar
-    println("Multiplicacion de matrices de manera recursiva y paralela")
-    for  {
-      i <- 1 to 6
-    } yield {
-      val A = matriz.MatrizAlAzar(pow(2, i).toInt, 10)
-      val B = matriz.MatrizAlAzar(pow(2, i).toInt, 10)
-      val (time1, time2, speedUp) = Bench.compararAlgoritmo(matriz.MultMatrizRec, matriz.MultMatrizRecPar)(A, B)
-      println(s"Time1: $time1, Time2: $time2, SpeedUp: $speedUp")
-    }
-    //Bench Strassen vs StrassenPar
-    println("Multiplicacion de matrices por strassen y paralela")
-    for {
-      i <- 1 to 6
-    }yield{
-      val A = matriz.MatrizAlAzar(pow(2, i).toInt, 10)
-      val B = matriz.MatrizAlAzar(pow(2, i).toInt, 10)
-      val (time1, time2, speedUp) = Bench.compararAlgoritmo(matriz.MultMatrizStrassen, matriz.StrassenParallel)(A, B)
-      println(s"Time1: $time1, Time2: $time2, SpeedUp: $speedUp")
-    }
-
-    //Comparacion ProductoPunto vs ProductoPuntoPar
-    println("Producto punto de vectores de manera iterativa y paralela")
-    val t = GenerarVec(1000)
-    val u = GenerarVec(1000)
-    val (time1, time2, speedUp) = Bench.CompararProductoPunto(
-      () => matriz.ProductoPunto(t, u),
-      () => matriz.prodPuntoParD(t.par, u.par)
-    )
-    println(s"Time1: $time1, Time2: $time2, SpeedUp: $speedUp")
+    
 
 
   }
 
-  def GenerarVec(n: Int): Vector[Int] = {
-    val random = new scala.util.Random
-    Vector.fill(n)(random.nextInt(50))
-  }
+  
 
   def greeting(): String = "Hello, world!"
 }
