@@ -27,22 +27,5 @@ class Benchmark {
     (timeA1.value, timeA2.value , speedUp)
   }
 
-  def CompararProductoPunto(a1: () => Int, a2: () => Int): (Double, Double, Double) = {
-
-    val timeA1 = config(
-      KeyValue(Key.exec.minWarmupRuns -> 20),
-      KeyValue(Key.exec.maxWarmupRuns -> 60),
-      KeyValue(Key.verbose -> false)
-    ) withWarmer(new Warmer.Default) measure {a1()}
-
-    val timeA2 = config(
-      KeyValue(Key.exec.minWarmupRuns -> 20),
-      KeyValue(Key.exec.maxWarmupRuns -> 60),
-      KeyValue(Key.verbose -> false)
-    ) withWarmer(new Warmer.Default) measure {a2()}
-
-    val speedUp = timeA1.value - timeA2.value
-
-    (timeA1.value, timeA2.value, speedUp)
-  }
+  
 }
