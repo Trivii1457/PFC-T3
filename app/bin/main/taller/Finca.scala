@@ -120,7 +120,6 @@ class Finca {
     }
 
     def generarProgramacionesRiegoPar(f:Finca) : Vector[ProgRiego] = {
-        //devuelve todas las posibles prog de riego de la finca
         val indices = (0 until f.length).toVector
         indices.permutations.toVector.par.toVector
     }
