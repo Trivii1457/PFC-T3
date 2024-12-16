@@ -50,14 +50,14 @@ class Benchmark {
         
     }
 
-    def compararProgramaciones(f: finca, d: Distancia): List[Double] = {
+    def compararGenProgramaciones(f: finca): List[Double] = {
         
         val timeSeq = withWarmer(new Warmer.Default) measure {
-            Riego.ProgramacionRiegoOptimo(f, d)
+            Riego.generarProgramacionesRiego(f)
         }
 
         val timePar = withWarmer(new Warmer.Default) measure {
-            Riego.ProgramacionRiegoOptimoPar(f, d)
+            Riego.generarProgramacionesRiegoPar(f)
         }
 
         val ts = timeSeq.value
