@@ -2,6 +2,7 @@ package taller
 import commom.Parallel
 import java.util.Random
 import  scala.collection.parallel.CollectionConverters._
+import org.scalameter._
 
 
 class Finca {
@@ -131,4 +132,8 @@ class Finca {
         )
         costos.minBy(_._2)
     }
+
+
+    
+
 }

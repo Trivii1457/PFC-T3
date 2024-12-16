@@ -9,14 +9,13 @@ object App {
   def main(args: Array[String]): Unit = {
     println(greeting())
 
+    val Riego = new Finca()
+    val Bench = new Benchmark()
+
+    
     
   }
 
-  def benchmarking(): Unit = {
-    
-
-
-  }
 
   
 
