@@ -75,7 +75,118 @@ object App {
     println("\n-------------------")
     println("Fin Benchmarking")
 
+    println("-------------------"*5)
+
+    Comprobando()
+
+
     
+  }
+
+  def Comprobando (): Unit = {
+    type Tablon = (Int, Int, Int)
+
+    type finca = Vector[Tablon]
+
+    type Distancia = Vector[Vector[Int]]
+
+    type ProgRiego = Vector[Int]
+
+    type  TiempoInicioRiego = Vector[Int]
+    
+    val Riego = new Finca()
+
+   val finca2 = Vector((1, 2, 3), (4, 5, 6))
+   val finca3 = Vector((1, 2, 3), (4, 5, 6), (7, 8, 9))
+   val finca4 = Vector((1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12))
+   val finca5 = Vector((1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15))
+   val finca6 = Vector((1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18))
+
+   val progRiego3 = Vector(0, 1, 2)
+   val progRiego2 = Vector(0, 1)
+   val progRiego4 = Vector(0, 1, 2, 3)
+    val progRiego5 = Vector(0, 1, 2, 3, 4)
+   val progRiego6 = Vector(0, 1, 2, 3, 4, 5)
+
+  val distancia2: Distancia = Vector(
+    Vector(0, 1),
+    Vector(1, 0)
+  )
+
+  val distancia3: Distancia = Vector(
+    Vector(0, 1, 2),
+    Vector(1, 0, 1),
+    Vector(2, 1, 0)
+  )
+
+  val distancia4: Distancia = Vector(
+    Vector(0, 1, 2, 3),
+    Vector(1, 0, 1, 2),
+    Vector(2, 1, 0, 1),
+    Vector(3, 2, 1, 0)
+  )
+
+  val distancia5: Distancia = Vector(
+    Vector(0, 1, 2, 3, 4),
+    Vector(1, 0, 1, 2, 3),
+    Vector(2, 1, 0, 1, 2),
+    Vector(3, 2, 1, 0, 1),
+    Vector(4, 3, 2, 1, 0)
+  )
+
+  val distancia6: Distancia = Vector(
+    Vector(0, 1, 2, 3, 4, 5),
+    Vector(1, 0, 1, 2, 3, 4),
+    Vector(2, 1, 0, 1, 2, 3),
+    Vector(3, 2, 1, 0, 1, 2),
+    Vector(4, 3, 2, 1, 0, 1),
+    Vector(5, 4, 3, 2, 1, 0)
+  )
+
+  println(Riego.costoRiegoTablon(0, finca2, progRiego2))
+  println(Riego.costoRiegoTablon(1, finca3, progRiego3))
+  println(Riego.costoRiegoTablon(2, finca4, progRiego4))
+  println(Riego.costoRiegoTablon(3, finca5, progRiego5))
+  println(Riego.costoRiegoTablon(4, finca6, progRiego6))
+
+  println(Riego.costoRiegoFinca(finca2, progRiego2))
+  println(Riego.costoRiegoFinca(finca3, progRiego3))
+  println(Riego.costoRiegoFinca(finca4, progRiego4))
+  println(Riego.costoRiegoFinca(finca5, progRiego5))
+  println(Riego.costoRiegoFinca(finca6, progRiego6))
+
+  println(Riego.costoMovilidad(finca2, progRiego2, distancia2))
+  println(Riego.costoMovilidad(finca3, progRiego3, distancia3))
+  println(Riego.costoMovilidad(finca4, progRiego4, distancia4))
+  println(Riego.costoMovilidad(finca5, progRiego5, distancia5))
+  println(Riego.costoMovilidad(finca6, progRiego6, distancia6))
+  
+
+  println(Riego.costoMovilidadPar(finca2, progRiego2, distancia2))
+  println(Riego.costoMovilidadPar(finca3, progRiego3, distancia3))
+  println(Riego.costoMovilidadPar(finca4, progRiego4, distancia4))
+  println(Riego.costoMovilidadPar(finca5, progRiego5, distancia5))
+  println(Riego.costoMovilidadPar(finca6, progRiego6, distancia6))
+
+  println(Riego.generarProgramacionesRiego(finca2).length)
+  println(Riego.generarProgramacionesRiego(finca3).length)
+  println(Riego.generarProgramacionesRiego(finca4).length)
+  println(Riego.generarProgramacionesRiego(finca5).length)
+  println(Riego.generarProgramacionesRiego(finca6).length)
+
+  println(Riego.ProgramacionRiegoOptimo(finca2, distancia2)._1.length)
+  println(Riego.ProgramacionRiegoOptimo(finca3, distancia3)._1.length)
+  println(Riego.ProgramacionRiegoOptimo(finca4, distancia4)._1.length)
+  println(Riego.ProgramacionRiegoOptimo(finca5, distancia5)._1.length)
+  println(Riego.ProgramacionRiegoOptimo(finca6, distancia6)._1.length)
+
+  println(Riego.costoRiegoFincaPar(finca2, progRiego2))
+  println(Riego.costoRiegoFincaPar(finca3, progRiego3))
+  println(Riego.costoRiegoFincaPar(finca4, progRiego4))
+  println(Riego.costoRiegoFincaPar(finca5, progRiego5))
+  println(Riego.costoRiegoFincaPar(finca6, progRiego6))
+
+
   }
 
   def pruebasCostoRiego(): Unit = {
@@ -84,7 +195,7 @@ object App {
     val Bench = new Benchmark()
 
     for {
-      i <- 1 to 10
+      i <- 1 to 8
     } yield {
       val f = Riego.FincaALAzar(i)
       val p = Riego.ProgramacionAlAlzar(i)
