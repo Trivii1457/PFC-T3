@@ -3,11 +3,9 @@ import org.scalameter._
 
 class Benchmark {
 
-    val Riego = new Finca()
-
     type Tablon = (Int, Int, Int)
 
-    type Finca = Vector[Tablon]
+    type finca = Vector[Tablon]
 
     type Distancia = Vector[Vector[Int]]
 
@@ -15,62 +13,72 @@ class Benchmark {
 
     type  TiempoInicioRiego = Vector[Int]
 
+    val Riego = new Finca()
+
     //--------------------------------------------------------------------------------
 
 
-    def comparacionCostoRiego(f: Finca, p: ProgRiego): List[Double] = {
+    def comparacionCostoRiego(f: finca, p: ProgRiego): List[Double] = {
         
-        val timeSeq = whitWarmer(new Warmer.Default) measure {
+        val timeSeq = withWarmer(new Warmer.Default) measure {
             Riego.costoRiegoFinca(f, p)
         }
 
-        val timePar = whitWarmer(new Warmer.Default) measure {
+        val timePar = withWarmer(new Warmer.Default) measure {
             Riego.costoRiegoFincaPar(f, p)
         }
 
-        List(timeSeq, timePar, timeSeq/timePar)
+        val ts = timeSeq.value
+        val tp = timePar.value
+        List(ts, tp, ts/tp)
         
     }
 
-    def comparacionCostoMov(f: Finca, p: ProgRiego, d: Distancia): List[Double] = {
+    def comparacionCostoMov(f: finca, p: ProgRiego, d: Distancia): List[Double] = {
         
-        val timeSeq = whitWarmer(new Warmer.Default) measure {
+        val timeSeq = withWarmer(new Warmer.Default) measure {
             Riego.costoMovilidad(f, p, d)
         }
 
-        val timePar = whitWarmer(new Warmer.Default) measure {
+        val timePar = withWarmer(new Warmer.Default) measure {
             Riego.costoMovilidadPar(f, p, d)
         }
 
-        List(timeSeq, timePar, timeSeq/timePar)
+        val ts = timeSeq.value
+        val tp = timePar.value
+        List(ts, tp, ts/tp)
         
     }
 
-    def compararProgramaciones(f: Finca, d: Distancia): List[Double] = {
+    def compararProgramaciones(f: finca, d: Distancia): List[Double] = {
         
-        val timeSeq = whitWarmer(new Warmer.Default) measure {
+        val timeSeq = withWarmer(new Warmer.Default) measure {
             Riego.ProgramacionRiegoOptimo(f, d)
         }
 
-        val timePar = whitWarmer(new Warmer.Default) measure {
+        val timePar = withWarmer(new Warmer.Default) measure {
             Riego.ProgramacionRiegoOptimoPar(f, d)
         }
 
-        List(timeSeq, timePar, timeSeq/timePar)
+        val ts = timeSeq.value
+        val tp = timePar.value
+        List(ts, tp, ts/tp)
         
     }
 
-    def compararProgOptimas(f: Finca, d: Distancia): List[Double] = {
+    def compararProgOptimas(f: finca, d: Distancia): List[Double] = {
         
-        val timeSeq = whitWarmer(new Warmer.Default) measure {
+        val timeSeq = withWarmer(new Warmer.Default) measure {
             Riego.ProgramacionRiegoOptimo(f, d)
         }
 
-        val timePar = whitWarmer(new Warmer.Default) measure {
+        val timePar = withWarmer(new Warmer.Default) measure {
             Riego.ProgramacionRiegoOptimoPar(f, d)
         }
 
-        List(timeSeq, timePar, timeSeq/timePar)
+        val ts = timeSeq.value
+        val tp = timePar.value
+        List(ts, tp, ts/tp)
         
     }
 

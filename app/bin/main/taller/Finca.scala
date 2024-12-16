@@ -1,5 +1,4 @@
 package taller
-import commom.Parallel
 import java.util.Random
 import  scala.collection.parallel.CollectionConverters._
 import org.scalameter._
@@ -50,6 +49,17 @@ class Finca {
             else vec(i)(j))
     }
 
+    //funcion Personal ---------------------------------------------
+    def ProgramacionAlAlzar(long: Int): ProgRiego = {
+
+        val vec = Vector.fill(long)(
+
+            random.nextInt(long)
+        )
+        vec
+    }
+    //--------------------------------------------------------------------------------
+
 
     //exploracion de entradas
 
@@ -61,19 +71,13 @@ class Finca {
 
     //calculo de tiempo de inicio de riego
 
-    def tIR(f: Finca, pi: ProgRiego): TiempoInicioRiego = {
-
-
+    def tIR(f: Finca, pi:ProgRiego) : TiempoInicioRiego = {
         val tiempos = Array.fill(f.length)(0)
-
-        for (j <- until to pi.length) {
-
-            val prevTablon = pi(j -  1)
-            val currentTablon = pi(j)
-            tiempos(currentTablon) =  tiempos(prevTablon) + treg(f, prevTablon)
-
+        for (j <- 1 until pi.length) {
+            val prevTablon = pi(j-1)
+            val currTablon = pi(j)
+            tiempos(currTablon) = tiempos(prevTablon) + treg(f, prevTablon) 
         }
-
         tiempos.toVector
     }
 

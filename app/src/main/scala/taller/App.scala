@@ -12,7 +12,13 @@ object App {
     val Riego = new Finca()
     val Bench = new Benchmark()
 
-    
+    //Probando funciones de la finca
+    val f = Riego.FincaALAzar(10)
+    val d = Riego.DistanciaAlAzar(10)
+    val p = Riego.ProgramacionAlAlzar(10)
+    println(f"\n{$f}")
+    println(f"\n{$d}")
+    println(f"\n{$p}")
     
   }
 
