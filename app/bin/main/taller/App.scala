@@ -77,7 +77,7 @@ object App {
 
     println("-------------------"*5)
 
-    Comprobando()
+    
 
 
     
@@ -194,14 +194,13 @@ object App {
     val Riego = new Finca()
     val Bench = new Benchmark()
 
-    for {
-      i <- 1 to 8
-    } yield {
+    for (i <- 1 to 9){
       val f = Riego.FincaALAzar(i)
       val p = Riego.ProgramacionAlAlzar(i)
       val res1 = Bench.comparacionCostoRiego(f, p)
+      print(f"\nIteracion: {$i}")
       println(res1)
-    }
+    } 
   }
 
   def pruebasCostoMov(): Unit = {
@@ -209,15 +208,14 @@ object App {
     val Riego = new Finca()
     val Bench = new Benchmark()
 
-    for {
-      i <- 1 to 8
-    } yield {
-      val f = Riego.FincaALAzar(i)
+    for (i <- 1 to 9){
+     val f = Riego.FincaALAzar(i)
       val d = Riego.DistanciaAlAzar(i)
       val p = Riego.ProgramacionAlAlzar(i)
       val res2 = Bench.comparacionCostoMov(f, p, d)
+      print(f"\nIteracion: {$i}")
       println(res2)
-    }
+    } 
   }
 
   def pruebasGenProgramaciones(): Unit = {
@@ -225,29 +223,26 @@ object App {
     val Riego = new Finca()
     val Bench = new Benchmark()
 
-    for {
-      i <- 1 to 8
-    } yield {
+    for (i <- 1 to 9){
       val f = Riego.FincaALAzar(i)
       val d = Riego.DistanciaAlAzar(i)
       val res3 = Bench.compararGenProgramaciones(f)
+      print(f"\nIteracion: {$i}")
       println(res3)
-    }
+    } 
   }
    
   def pruebasProgOptimas(): Unit = {
 
     val Riego = new Finca()
     val Bench = new Benchmark()
-
-    for {
-      i <- 1 to 8
-    } yield {
+    for (i <- 1 to 9){
       val f = Riego.FincaALAzar(i)
       val d = Riego.DistanciaAlAzar(i)
-      val res1 = Bench.compararProgOptimas(f, d)
-      println(res1)
-    }
+      val res4 = Bench.compararProgOptimas(f, d)
+      print(f"\nIteracion: {$i} ")
+      println(res4)
+    } 
   }
 
 
